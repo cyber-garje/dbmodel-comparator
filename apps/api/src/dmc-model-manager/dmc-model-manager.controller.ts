@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { DmcModelManagerService } from './dmc-model-manager.service';
 import { ModelManager } from '@dbmodel-comparator/api-interfaces';
 
@@ -9,7 +9,12 @@ export class DmcModelManagerController {
     private dmcModelMangerService: DmcModelManagerService
   ) {}
 
-  @Get('/:name')
+  @Get()
+  findAll() {
+    return this.dmcModelMangerService.findAll();
+  }
+
+  @Get(':name')
   retrieveModel(@Param('name') name: string) {
     return this.dmcModelMangerService.find(name);
   }
@@ -17,5 +22,10 @@ export class DmcModelManagerController {
   @Post()
   async createModel(@Body() model: ModelManager) {
     return this.dmcModelMangerService.create(model);
+  }
+
+  @Delete(':name')
+  async deleteModel(@Param('name') name: string) {
+    return this.dmcModelMangerService.delete(name);
   }
 }

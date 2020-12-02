@@ -3,6 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DmcSwagger } from './dmc-swagger/dmc-swagger';
 import { DMCLogger } from './common/dmc-logger';
+import { AuthGuard } from './core/guards/AuthGuard';
+import { MongooseExceptionFilter } from './core/filters/mongoose-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -13,6 +15,8 @@ async function bootstrap() {
 
   app.useLogger(DMCLogger);
   app.setGlobalPrefix(globalPrefix);
+  app.useGlobalFilters(new MongooseExceptionFilter());
+  app.useGlobalGuards(new AuthGuard());
   DmcSwagger.initSwagger(app);
 
   await app.listen(port, () => {

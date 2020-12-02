@@ -11,8 +11,7 @@ export class DMCLogger extends Logger implements LoggerService {
   }
 
   static e(message: string, trace?: string, context?: string): void {
-    console.log(`${this.getTimestamp()} [ERROR] ${message} ${context || ''}`);
-    console.log(`${this.getTimestamp()} [ERROR] ${trace}`);
+    console.log(`${this.getTimestamp()} [ERROR] ${context ? context + ' = ' : ''}${message} ${trace || ''} `);
   }
 
   static i(message: string, context?: string): void {
