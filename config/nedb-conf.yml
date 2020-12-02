@@ -1,0 +1,27 @@
+modelExtractor:
+    filename: 'data/model-manager.db'
+    inMemoryOnly: false
+    autoload: false
+    corruptAlertThreshold: 10
+    timestampData: false
+
+plantUMLManager:
+    filename: 'data/plantuml-model.db'
+    inMemoryOnly: false
+    autoload: false
+    corruptAlertThreshold: 10
+    timestampData: false
+
+rulesManager:
+    filename: 'data/rules-manager.db'
+    inMemoryOnly: false
+    autoload: false
+    corruptAlertThreshold: 10
+    timestampData: false
+
+environmentManager:
+    filename: 'data/environment-manager.db'
+    inMemoryOnly: false
+    autoload: false
+    corruptAlertThreshold: 10
+    timestampData: false

@@ -6,24 +6,24 @@ export class DMCLogger extends Logger implements LoggerService {
     super(context, isTimestampEnabled);
   }
 
-  static debug(message: string, context?: string): void {
+  static d(message: string, context?: string): void {
     console.log(`${this.getTimestamp()} [DEBUG] ${message} ${context || ''}`);
   }
 
-  static error(message: string, trace?: string, context?: string): void {
+  static e(message: string, trace?: string, context?: string): void {
     console.log(`${this.getTimestamp()} [ERROR] ${message} ${context || ''}`);
     console.log(`${this.getTimestamp()} [ERROR] ${trace}`);
   }
 
-  static log(message: string, context?: string): void {
+  static i(message: string, context?: string): void {
     console.log(`${this.getTimestamp()} [INFO] ${message} ${context || ''}`);
   }
 
-  static verbose(message: string, context?: string): void {
+  static v(message: string, context?: string): void {
     console.log(`${this.getTimestamp()} [VERB] ${message} ${context || ''}`);
   }
 
-  static warn(message: string, context?: string): void {
+  static w(message: string, context?: string): void {
     console.log(`${this.getTimestamp()} [WARN] ${message} ${context || ''}`);
   }
 

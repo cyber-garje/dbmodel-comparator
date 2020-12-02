@@ -1,12 +1,7 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import { NestFactory } from '@nestjs/core';
 
-import { AppModule } from './app/app.module';
-import { DmcSwagger } from './dmc-swagger';
+import { AppModule } from './app.module';
+import { DmcSwagger } from './dmc-swagger/dmc-swagger';
 import { DMCLogger } from './common/dmc-logger';
 
 async function bootstrap() {
@@ -21,7 +16,7 @@ async function bootstrap() {
   DmcSwagger.initSwagger(app);
 
   await app.listen(port, () => {
-    DMCLogger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+    DMCLogger.i('Listening at http://localhost:' + port + '/' + globalPrefix);
   });
 }
 

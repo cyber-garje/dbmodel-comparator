@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dbmodel-comparator/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@dbmodel-comparator/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@dbmodel-comparator/database": ["db/model-manager.db"],
+      "@dbmodel-comparator/config": ["config/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
